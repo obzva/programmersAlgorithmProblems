@@ -6,4 +6,10 @@ function solution(a, b) {
     };
 
     return answer;
+};
+
+/* reduce로 더 간단하게 표현
+function solution(a, b) {
+    return a.reduce((acc, _, i) => acc += a[i] * b[i], 0);
 }
+*/
