@@ -1,3 +1,13 @@
+//에라토스테네스의 체
+const prime = array => {
+    let max = array[array.length-1], upperLimit = Math.sqrt(max);
+    for (let i = 2; i <= upperLimit; i ++) {
+        array = array.filter(x => x % i !== 0);
+    };
+    return array;
+}
+
+
 function solution(nums) {
     nums.sort((a, b) => a - b); //nums 크기 순으로 sorting
     
@@ -9,9 +19,7 @@ function solution(nums) {
                 sums.push(nums[i] + nums[j] + nums[k]);
             }
         }
-    }
-
+    };
     
-    let answer = 0;
-    return answer;
-}
+    return prime(sums).length;
+};
