@@ -2,7 +2,7 @@
 const prime = array => {
     let max = array[array.length-1], upperLimit = Math.sqrt(max);
     for (let i = 2; i <= upperLimit; i ++) {
-        array = array.filter(x => x % i !== 0);
+        array = array.filter(x => x % i !== 0 && x !== i);
     };
     return array;
 }
