@@ -53,6 +53,3 @@ function solution(n) {
 
     return answer.join('');
 }
-
-let n = 15;
-console.log(solution(n))
