@@ -40,7 +40,3 @@ const solution = (orders, course) => {
     }
     return answer.sort();
 }
-
-//testcase
-let orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"], course = [2,3,4];
-console.log(solution(orders, course));

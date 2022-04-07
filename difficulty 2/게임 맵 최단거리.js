@@ -1,4 +1,4 @@
-const moving = (maps, currLoc) => {
+/* const moving = (maps, currLoc) => {
     if (maps[currLoc[0]][currLoc[1] + 1] === 1) {
         return [currLoc[0], currLoc[1] + 1];
     } else {
@@ -34,4 +34,34 @@ const solution = maps => {
         answer ++;
         if (currLoc[0] === n && currLoc[1] === m) return answer;
     }
-}
+} */
+
+function solution(maps) {
+    // 남서북동 순서
+    const dy = [1, 0, -1, 0];
+    const dx = [0, -1, 0, 1];
+    const row = maps.length; // 행
+    const col = maps[0].length; // 열
+    const visitCount = [...maps].map((r) => r.map((c) => 1));
+  
+    let temp = 0;
+    const queue = [[0, 0]];
+    while (queue.length) {
+      const [y, x] = queue.shift();
+  
+      for (let k = 0; k < 4; k++) {
+        const ny = y + dy[k];
+        const nx = x + dx[k];
+        console.log([y, x]);
+  
+        if (ny >= 0 && nx >= 0 && ny < row && nx < col) {
+          if (maps[ny][nx] === 1 && visitCount[ny][nx] === 1) {
+            visitCount[ny][nx] = visitCount[y][x] + 1;
+            queue.push([ny, nx]);
+          }
+        }
+      }
+    }
+  
+    return visitCount[row - 1][col - 1] === 1 ? -1 : visitCount[row - 1][col - 1];
+  }
