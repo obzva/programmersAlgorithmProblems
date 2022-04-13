@@ -8,4 +8,4 @@ function permutation(arr, num){
         res.push(...attach);
     }
     return res;
-  }
+}
