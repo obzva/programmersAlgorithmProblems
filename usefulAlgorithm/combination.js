@@ -8,4 +8,4 @@ function combination(arr, num){
         res.push(...attach);
     }
     return res;
-  }
+}
