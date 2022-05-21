@@ -14,11 +14,18 @@ const solution = (n, k) => {
   const arr = n.toString(k).split(/0+/);
 
   for (let i = 0; i < arr.length; i++) {
-    if (isPrime(Number(arr[i]))) res++;
+    let numArrI = 0;
+    for (let j = 0; j < arr[i].length; j++) {
+      numArrI *= 10;
+      numArrI += arr[i].charCodeAt(j) - 48;
+    }
+    console.log(numArrI);
+    if (isPrime(numArrI)) res++;
   }
+
   return res;
 };
 
 //testCase
-//const [n, k] = [110011, 10];
-//solution(n, k);
+const [n, k] = [110011, 10];
+solution(n, k);
